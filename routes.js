@@ -9,8 +9,11 @@ router.get("/posts", async (req, res) => {
 
 router.post("/posts", async (req, res) => {
   const post = new Post({
+    _id: req.body._id,
     title: req.body.title,
-    content: req.body.content
+    price: req.body.price,
+    images: req.body.images,
+    about: req.body.about
   });
   await post.save();
   res.send(post);
