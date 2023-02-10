@@ -1,7 +1,9 @@
 const express = require("express");
 const Post = require("./models/Post");
 const router = express.Router();
+const cors = require('cors');
 
+router.use(cors());
 
 router.get("/posts", async (req, res) => {
   const posts = await Post.find();
