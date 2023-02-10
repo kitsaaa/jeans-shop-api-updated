@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
+const cors = require("cors");
 
 mongoose
   .connect("mongodb+srv://nk:admin@cluster0.nc6ci.mongodb.net/JeansShop?retryWrites=true&w=majority", { useNewUrlParser: true })
@@ -8,11 +9,8 @@ mongoose
     const app = express();
     app.use(express.json());
     app.use("/api", routes);
-    app.use(function(req, res, next) {
-      res.header("Access-Control-Allow-Origin", "*");
-      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-      next();
-    });
+    app.use(cors());
+
     
 
     app.listen(4000, () => {
