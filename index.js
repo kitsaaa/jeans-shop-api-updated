@@ -6,6 +6,8 @@ mongoose
   .connect("mongodb+srv://nk:admin@cluster0.nc6ci.mongodb.net/JeansShop?retryWrites=true&w=majority", { useNewUrlParser: true })
   .then(() => {
     const app = express();
+    const cors = require('cors');
+    app.use(cors());
     app.use(express.json());
     app.use("/api", routes);
 

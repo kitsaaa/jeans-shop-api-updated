@@ -2,11 +2,6 @@ const express = require("express");
 const Post = require("./models/Post");
 const router = express.Router();
 
-router.all('/', function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  next()
-});
 
 router.get("/posts", async (req, res) => {
   const posts = await Post.find();
