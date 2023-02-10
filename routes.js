@@ -22,6 +22,7 @@ router.post("/posts", async (req, res) => {
 router.get("/posts/:id", async (req, res) => {
   try {
     const post = await Post.findOne({ _id: req.params.id });
+    console.log(post);
     res.send(post);
   } catch {
     res.status(404);

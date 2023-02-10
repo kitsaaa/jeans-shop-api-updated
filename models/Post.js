@@ -1,7 +1,8 @@
+const { ObjectId } = require("mongoose");
 const mongoose = require("mongoose");
 
 const schema = mongoose.Schema({
-  _id: String,
+  _id: ObjectId,
   title: String,
   price: String,
   images: [String],
